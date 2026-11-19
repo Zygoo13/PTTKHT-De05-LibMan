@@ -1,0 +1,36 @@
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .35rem .55rem;
+    color: var(--muted);
+}
+
+.summary strong {
+    color: var(--ink);
+}
+
+/* Cột Mã phiếu. */
+.report-results th:first-child {
+    width: 15%;
+}
+
+/* Cột Ngày giờ mượn. */
+.report-results th:nth-child(2) {
+    width: 23%;
+}
+
+/* Cột Số bản. */
+.report-results th.number-column {
+    width: 12%;
+}
+
+/* Cột Chi tiết. Căn phải cả tiêu đề và liên kết trong từng dòng. */
+.report-results th:last-child {
+    width: 18%;
+}
+
+.report-results th:last-child,
+.report-results td:last-child {
+    text-align: right;
+}

@@ -1,0 +1,7 @@
+/target/
+/nbproject/private/
+/.libman-db.properties
+/.libman-dev-accounts.txt
+/libman-src.zip
+*.log
+__pycache__/

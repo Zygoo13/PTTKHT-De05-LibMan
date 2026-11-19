@@ -1,0 +1,18 @@
+.home-page .main {
+    max-width: var(--content-width);
+}
+
+.home-panel {
+    max-width: 42rem;
+}
+
+.home-panel p {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 450px) {
+    .home-panel .button {
+        width: 100%;
+    }
+}

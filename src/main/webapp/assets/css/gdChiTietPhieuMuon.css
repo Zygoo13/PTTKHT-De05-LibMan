@@ -1,0 +1,6 @@
+.return-time {
+    display: block;
+    margin-top: .25rem;
+    white-space: nowrap;
+    color: var(--muted);
+}

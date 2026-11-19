@@ -1,0 +1,13 @@
+.login-panel {
+    width: 100%;
+    max-width: 420px;
+    margin: clamp(1rem, 8vh, 4rem) auto;
+    padding: 1.75rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}

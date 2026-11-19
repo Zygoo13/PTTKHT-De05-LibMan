@@ -1,0 +1,60 @@
+/* Hai ô ngày và nút xem thống kê. */
+.report-form {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    width: fit-content;
+    max-width: 100%;
+    padding: 1rem;
+    gap: .55rem .8rem;
+}
+
+.report-form .field {
+    min-width: 0;
+}
+
+.report-form input, .report-form button {
+    min-height: 40px;
+}
+
+.report-form input {
+    color: var(--ink);
+    font-weight: 400;
+    border-color: #aebcb0;
+}
+
+.results-header {
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+}
+
+.notice {
+    margin: .5rem 1rem 1rem;
+}
+
+.report-empty {
+    margin: 0;
+    padding: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+}
+
+/* Cột Mã độc giả. */
+.report-results th:first-child {
+    width: 16%;
+}
+
+/* Cột Số lần mượn. */
+.report-results th.number-column {
+    width: 18%;
+}
+
+/* Cột Chi tiết. Căn phải cả tiêu đề và liên kết trong từng dòng. */
+.report-results th:last-child {
+    width: 23%;
+}
+
+.report-results th:last-child,
+.report-results td:last-child {
+    text-align: right;
+}

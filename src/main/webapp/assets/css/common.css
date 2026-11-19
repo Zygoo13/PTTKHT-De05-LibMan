@@ -1,0 +1,560 @@
+:root {
+    color-scheme: light;
+    /* Xanh đậm cho thanh điều hướng, xanh nhấn cho nút và liên kết. */
+    --navy: #173e33;
+    --ink: #202e28;
+    --muted: #535f57;
+    --blue: #215847;
+    --line: #d9e0d9;
+    --canvas: #f7f7f1;
+    --white: #fff;
+    --content-width: 1120px;
+    --shadow: 0 8px 24px #173e330a;
+    font: 16px/1.55 "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+}
+
+a {
+    color: var(--blue);
+}
+
+button, input, select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid #bb6614;
+    outline-offset: 3px;
+}
+
+.skip {
+    position: absolute;
+    top: -4rem;
+    background: white;
+    padding: .5rem 1rem;
+}
+
+.skip:focus {
+    top: .5rem;
+    left: .5rem;
+    z-index: 2;
+}
+
+.shell {
+    width: calc(100% - clamp(32px, 7vw, 96px));
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Thanh điều hướng */
+
+.site-header {
+    background: var(--navy);
+    color: white;
+    border-bottom: 3px solid #dbe4da;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 750;
+    font-size: 1.25rem;
+}
+
+.mark {
+    background: #e9f2ff;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.mark i {
+    display: block;
+    width: 8px;
+    height: 13px;
+    border: 2px solid var(--navy);
+    border-radius: 2px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+nav a {
+    color: #dfebfa;
+    text-decoration: none;
+    padding: .5rem .75rem;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+nav a:hover, nav a[aria-current] {
+    background: #285647;
+    color: white;
+}
+
+.session-controls {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.session-controls small {
+    display: block;
+    color: #dfebfa;
+}
+
+.main {
+    padding-block: clamp(1.4rem, 4vw, 2.75rem) 4rem;
+}
+
+.code {
+    font-size: .86rem;
+    font-weight: 650;
+    color: var(--muted);
+}
+
+.code, .number {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.number {
+    font-weight: 750;
+    color: var(--navy);
+}
+
+h1, h2, p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: .55rem;
+    font-size: clamp(1.65rem, 4vw, 2rem);
+    line-height: 1.18;
+    letter-spacing: -.035em;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin: 1.65rem 0 .75rem;
+}
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 1.4rem;
+    row-gap: .45rem;
+    margin-bottom: 1rem;
+}
+
+.page-heading h1, .page-heading h2 {
+    margin-bottom: 0;
+}
+
+.panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    box-shadow: var(--shadow);
+}
+
+/* Form, nút và thông báo */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    font-weight: 650;
+    font-size: .94rem;
+}
+
+input, select {
+    min-height: 42px;
+    width: 100%;
+    min-width: 0;
+    padding: .56rem .8rem;
+    border: 1px solid #9eb0c5;
+    border-radius: 7px;
+    background: white;
+    color: var(--ink);
+}
+
+button, .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: .55rem 1rem;
+    background: var(--blue);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
+    background: #173e33;
+}
+
+.exit {
+    min-height: 36px;
+    background: transparent;
+    border-color: #6d89a9;
+    font-size: .85rem;
+    white-space: nowrap;
+}
+
+.notice {
+    margin-top: 1rem;
+    padding: .95rem 1.15rem;
+    background: #edf3fa;
+    border: 1px solid #cbdcee;
+    border-radius: 8px;
+    color: #355374;
+    overflow-wrap: anywhere;
+}
+
+.error {
+    background: #fff1ef;
+    border-color: #edbcb5;
+    color: #862c21;
+}
+
+/* Bảng dữ liệu và thông tin chi tiết */
+
+.table-scroll {
+    overflow-x: auto;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    box-shadow: var(--shadow);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: .95rem;
+}
+
+th, td {
+    padding: .9rem 1rem;
+    vertical-align: middle;
+}
+
+th {
+    color: #304b68;
+    background: #eaf1f9;
+    white-space: nowrap;
+    font-size: .875rem;
+}
+
+td {
+    border-top: 1px solid var(--line);
+}
+
+tbody tr:nth-child(even) {
+    background: #f8fafd;
+}
+
+tbody tr:hover {
+    background: #eef5fe;
+}
+
+.action {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 650;
+    text-underline-offset: .22em;
+}
+
+.back {
+    display: inline-block;
+    margin: .1rem 0 .9rem;
+    font-weight: 650;
+    text-underline-offset: .22em;
+}
+
+.metadata {
+    margin: 1.15rem 0;
+}
+
+.metadata h2 {
+    margin: 0 0 1rem;
+    padding-bottom: .65rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem 1.5rem;
+    margin: 0;
+}
+
+.details dt {
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.details dd {
+    margin: .15rem 0 0;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.details .full {
+    grid-column: 1 / -1;
+}
+
+.item-state {
+    display: inline-block;
+    background: #edf1f6;
+    color: #354c65;
+    padding: .18rem .5rem;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.item-state.in-stock {
+    background: #e4f4ea;
+    color: #195936;
+}
+
+/* Độ rộng nội dung trên các trang nghiệp vụ và thanh điều hướng sau đăng nhập. */
+.catalog-view .main, .authenticated-header .shell {
+    max-width: var(--content-width);
+}
+
+.authenticated-header .header-inner {
+    min-height: 62px;
+}
+
+.authenticated-header .mark {
+    background: #e8eee4;
+}
+
+.catalog-view :focus-visible, .home-page :focus-visible {
+    outline-color: #ab5e19;
+}
+
+/* Khung kết quả dùng chung */
+
+.results-panel {
+    margin-top: 1rem;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+}
+
+.results-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: .7rem 1rem;
+    background: #eef1e9;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.results-header h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.results-header span {
+    color: var(--muted);
+    font-size: .85rem;
+    white-space: nowrap;
+}
+
+.report-results .table-scroll {
+    border: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.report-view h1, .home-page h1 {
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    letter-spacing: -.025em;
+}
+
+.report-view .main, .home-page .main {
+    padding-top: 2rem;
+}
+
+.report-results td, .report-results th {
+    padding-block: .7rem;
+}
+
+.report-results tbody tr:nth-child(even) {
+    background: #f8faf6;
+}
+
+/* Nhãn chính sách mượn và số bản sẵn có. Tình trạng từng bản dùng .item-state. */
+.catalog-availability {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem .65rem;
+    margin: 0;
+}
+
+.catalog-availability small {
+    color: var(--muted);
+}
+
+.catalog-status {
+    display: inline-block;
+    padding: .12rem .5rem;
+    border-radius: 5px;
+    color: #654a25;
+    background: #f6efe0;
+    font-size: .8rem;
+}
+
+.catalog-status-ready {
+    color: #215847;
+    background: #e8f2e9;
+}
+
+.catalog-view th {
+    background: #eaf0e9;
+    color: var(--navy);
+}
+
+/* Bố cục màn hình hẹp */
+
+@media (max-width: 720px) {
+    .header-inner {
+        flex-wrap: wrap;
+        gap: .55rem;
+        padding-block: .7rem;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+    }
+
+    .details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    th, td {
+        padding: .72rem .8rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .session-controls {
+        gap: .4rem;
+        min-width: 0;
+    }
+
+    .session-controls > span {
+        overflow-wrap: anywhere;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .authenticated-header .session-controls {
+        font-size: .82rem;
+    }
+
+    .authenticated-header .exit {
+        padding-inline: .55rem;
+    }
+}
+
+/* Cột số và tiêu đề dùng trong các trang nghiệp vụ. */
+.number-column {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.search-hint {
+    color: var(--muted);
+    font-size: .9rem;
+    margin: .75rem 0;
+}
+
+.report-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .45rem .75rem;
+    margin-bottom: .5rem;
+}
+
+.report-title .module-subtitle {
+    margin: 0;
+}
+
+.report-code {
+    padding: .2rem .55rem;
+    border: 1px solid #bacbc0;
+    border-radius: 5px;
+    background: #e8f2e9;
+    color: var(--navy);
+    font-size: .875rem;
+}
+
+.module-title {
+    margin-bottom: 1rem;
+}
+
+.module-subtitle {
+    margin: 0 0 .55rem;
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+}
+
+.catalog-view .back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: .35rem .75rem;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--white);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.catalog-view .back:hover {
+    background: #eef1e9;
+}

@@ -1,0 +1,73 @@
+<%@ page pageEncoding="UTF-8" %>
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><c:out value="${pageTitle}"/> · Thư viện PTIT</title>
+    <link rel="icon" type="image/svg+xml" href="<c:url value='/assets/libman-icon.svg'/>">
+    <link rel="stylesheet" href="<c:url value='/assets/css/common.css'/>">
+    <link rel="stylesheet" href="<c:url value='${pageStylesheet}'/>">
+</head>
+<body class="${catalogView ? 'catalog-view' : ''} ${section eq 'reports'
+    ? 'report-view' : ''} ${homeView ? 'home-page' : ''}">
+<a class="skip" href="#main">Đến nội dung</a>
+<header class="site-header ${not empty sessionScope.account ? 'authenticated-header' : ''}">
+    <div class="shell header-inner">
+        <c:set var="homePath" value="${empty sessionScope.account ? '/' : '/home'}"/>
+        <a class="brand"
+           href="<c:url value='${homePath}'/>"
+           aria-label="${empty sessionScope.account
+               ? 'Thư viện PTIT'
+               : 'Thư viện PTIT — Trang chủ'}">
+            <span class="mark" aria-hidden="true"><i></i><i></i></span>Thư viện PTIT
+        </a>
+        <c:if test="${not empty sessionScope.account}">
+            <nav aria-label="Chức năng">
+                <a href="<c:url value='/home'/>"
+                   ${homeView ? 'aria-current="page"' : ''}>Trang chủ</a>
+                <c:if test="${sessionScope.account.role eq 'READER'}">
+                    <a href="<c:url value='/documents'/>"
+                       ${section eq 'documents' ? 'aria-current="page"' : ''}>Tìm tài liệu</a>
+                </c:if>
+                <c:if test="${sessionScope.account.role eq 'MANAGER'}">
+                    <a href="<c:url value='/reports/readers'/>"
+                       ${section eq 'reports' ? 'aria-current="page"' : ''}>Thống kê độc giả</a>
+                </c:if>
+            </nav>
+            <div class="session-controls">
+                <span><strong><c:out value="${sessionScope.fullName}"/></strong>
+                    <small>
+                        <c:choose>
+                            <c:when test="${sessionScope.account.role eq 'MANAGER'}">Người quản lý</c:when>
+                            <c:when test="${sessionScope.account.role eq 'READER'}">Độc giả</c:when>
+                            <c:when test="${sessionScope.account.role eq 'STAFF'}">Nhân viên thư viện</c:when>
+                            <c:otherwise><c:out value="${sessionScope.account.role}"/></c:otherwise>
+                        </c:choose>
+                    </small>
+                </span>
+                <form action="<c:url value='/logout'/>" method="post">
+                    <input type="hidden" name="token" value="<c:out value="${sessionScope.logoutToken}"/>">
+                    <button class="exit" type="submit">Đăng xuất</button>
+                </form>
+            </div>
+        </c:if>
+    </div>
+</header>
+<main class="shell main" id="main">
+<c:if test="${catalogView}">
+    <h1 class="module-title">${section eq 'reports' ? 'Thống kê độc giả' : 'Tìm tài liệu'}</h1>
+</c:if>
+<c:set var="typeLabels" value="${{
+    'BOOK': 'Sách',
+    'TEXTBOOK': 'Giáo trình',
+    'MAGAZINE': 'Tạp chí',
+    'OTHER': 'Khác'
+}}"/>
+
+<c:set var="itemLabels" value="${{
+    'AVAILABLE': 'Sẵn có',
+    'BORROWED': 'Đang được mượn',
+    'DAMAGED': 'Hư hỏng',
+    'LOST': 'Đã mất'
+}}"/>

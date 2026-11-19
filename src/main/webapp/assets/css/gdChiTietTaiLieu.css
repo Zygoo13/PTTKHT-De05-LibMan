@@ -1,0 +1,16 @@
+/* Bố cục thông tin dùng .details trong common.css. */
+.record-code {
+    font-size: .86rem;
+    font-weight: 650;
+    color: var(--blue);
+    letter-spacing: .04em;
+    margin-bottom: .35rem;
+}
+
+.section-heading {
+    margin: 1.65rem 0 .75rem;
+}
+
+.section-heading h2 {
+    margin-top: 0;
+}
