@@ -12,6 +12,7 @@
 <body class="${catalogView ? 'catalog-view' : ''} ${section eq 'reports'
     ? 'report-view' : ''} ${homeView ? 'home-page' : ''}">
 <a class="skip" href="#main">Đến nội dung</a>
+<c:if test="${not loginPage}">
 <header class="site-header ${not empty sessionScope.account ? 'authenticated-header' : ''}">
     <div class="shell header-inner">
         <c:set var="homePath" value="${empty sessionScope.account ? '/' : '/home'}"/>
@@ -54,6 +55,7 @@
         </c:if>
     </div>
 </header>
+</c:if>
 <main class="shell main" id="main">
 <c:if test="${catalogView}">
     <h1 class="module-title">${section eq 'reports' ? 'Thống kê độc giả' : 'Tìm tài liệu'}</h1>

@@ -508,10 +508,16 @@ WITH reportLoans AS (
 )
 SELECT scenario, actual, actual = expected AS pass FROM cases ORDER BY scenario;
 
--- MD2: ca demo phiếu PM-B103 trong kỳ 01–15/11/2026.
+-- MD2: phiếu PM-B103 trong kỳ 01–15/11/2026 và lịch sử R001 từ đầu năm.
 WITH demoPeriod AS (
     SELECT id, readerId, loanNumber FROM tblLoan
     WHERE checkoutDateTime >= '2026-10-31 17:00:00' AND checkoutDateTime < '2026-11-15 17:00:00'
+), readerYear AS (
+    SELECT DATE(TIMESTAMPADD(HOUR, 7, checkoutDateTime)) AS loanDate
+    FROM tblLoan
+    WHERE readerId = 1
+      AND checkoutDateTime >= '2025-12-31 17:00:00'
+      AND checkoutDateTime < '2026-11-20 17:00:00'
 ), demoSlip AS (
     SELECT i.itemCode, d.documentCode, i.itemStatus, ld.dueDate,
            DATE(TIMESTAMPADD(HOUR, 7, r.returnDateTime)) AS returnedOn
@@ -523,9 +529,9 @@ WITH demoPeriod AS (
     LEFT JOIN tblReturn r ON r.id = rd.returnId
     WHERE p.loanNumber = 'PM-B103' AND p.readerId = 1
 ), cases AS (
-    SELECT 'DEMO-01' AS scenario, COUNT(*) AS actual, 15 AS expected FROM demoPeriod
+    SELECT 'DEMO-01' AS scenario, COUNT(*) AS actual, 8 AS expected FROM demoPeriod
     UNION ALL SELECT 'DEMO-02', COUNT(DISTINCT readerId), 5 FROM demoPeriod
-    UNION ALL SELECT 'DEMO-03', COUNT(*), 11 FROM demoPeriod WHERE readerId = 1
+    UNION ALL SELECT 'DEMO-03', COUNT(*), 11 FROM readerYear
     UNION ALL SELECT 'DEMO-04', COUNT(*), 4 FROM demoSlip
     UNION ALL SELECT 'DEMO-05', COUNT(*), 4 FROM demoSlip WHERE
         (itemCode = 'IT-023' AND returnedOn = '2026-11-16' AND returnedOn < dueDate)
@@ -538,6 +544,8 @@ WITH demoPeriod AS (
             OR (username = 'librarystaff001' AND role = 'STAFF')
             OR (username = 'manager001' AND role = 'MANAGER'))
         AND password LIKE '{PBKDF2-SHA256}600000$%'
+    UNION ALL SELECT 'DEMO-07', COUNT(DISTINCT MONTH(loanDate)), 7 FROM readerYear
+        HAVING MIN(loanDate) = '2026-01-01' AND MAX(loanDate) = '2026-11-19'
 )
 SELECT scenario, actual, actual = expected AS pass FROM cases ORDER BY scenario;
 

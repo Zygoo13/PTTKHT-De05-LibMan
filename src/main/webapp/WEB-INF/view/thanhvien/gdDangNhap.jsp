@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="Đăng nhập"/>
-<c:set var="pageStylesheet" value="/assets/css/gdDangNhap.css"/>
+<c:set var="pageStylesheet" value="/assets/css/gdDangNhap.css?v=2"/>
+<c:set var="loginPage" value="${true}"/>
 <%@ include file="/WEB-INF/view/dungchung/header.jspf" %>
 <div class="login-layout">
     <p class="login-brand">Thư viện PTIT</p>
