@@ -76,7 +76,6 @@
             <c:set var="totalCount" value="${items.size()}"/>
             <div class="availability-count">
                 <strong><c:out value="${availableCount}"/>/<c:out value="${totalCount}"/> bản sẵn có</strong>
-                <small><c:out value="${availableCount}"/> bản sẵn có trên tổng số <c:out value="${totalCount}"/> bản tài liệu</small>
             </div>
         </div>
     </div>
