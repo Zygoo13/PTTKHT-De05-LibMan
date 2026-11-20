@@ -6,7 +6,8 @@ $files = @(
     'package-submission.ps1',
     'database/01_schema.sql', 'database/02_seed.sql', 'database/03_verify.sql',
     'database/04_stored_procedures.sql',
-    'database/catalog_sources.csv'
+    'database/catalog_sources.csv',
+    'src/main/webapp/WEB-INF/view/nhanvienthuvien/.gitkeep'
 )
 
 # Chỉ lấy mã nguồn Java và các loại tệp web mà ứng dụng sử dụng.

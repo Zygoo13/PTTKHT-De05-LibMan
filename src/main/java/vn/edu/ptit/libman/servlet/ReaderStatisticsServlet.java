@@ -107,7 +107,7 @@ public class ReaderStatisticsServlet extends HttpServlet {
             response.setStatus(400);
             request.setAttribute("error", "Nhập đủ hai ngày hợp lệ. Từ ngày phải trước hoặc bằng Đến ngày.");
         }
-        request.getRequestDispatcher("/WEB-INF/view/quanli/gdThongKeDocGia.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/nhanvienquanli/gdThongKeDocGia.jsp").forward(request, response);
     }
 
     private void showLoans(HttpServletRequest request, HttpServletResponse response,
@@ -131,7 +131,7 @@ public class ReaderStatisticsServlet extends HttpServlet {
         request.setAttribute("reader", reader);
         request.setAttribute("loans", readerLoans);
         request.setAttribute("checkoutLabels", checkoutLabels);
-        request.getRequestDispatcher("/WEB-INF/view/quanli/gdLuotMuonDocGia.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/nhanvienquanli/gdLuotMuonDocGia.jsp").forward(request, response);
     }
 
     private void showLoan(HttpServletRequest request, HttpServletResponse response,
@@ -161,7 +161,7 @@ public class ReaderStatisticsServlet extends HttpServlet {
                 .forEach((id, time) -> returnLabels.put(id, TIME.format(time)));
         request.setAttribute("returnLabels", returnLabels);
         request.setAttribute("documentsByItemId", documentsByItemId);
-        request.getRequestDispatcher("/WEB-INF/view/quanli/gdChiTietPhieuMuon.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/nhanvienquanli/gdChiTietPhieuMuon.jsp").forward(request, response);
     }
 
     private void showLoanSlip(HttpServletRequest request, HttpServletResponse response,
@@ -187,7 +187,7 @@ public class ReaderStatisticsServlet extends HttpServlet {
         request.setAttribute("checkoutLabel", TIME.format(loan.getCheckoutDateTime()));
         request.setAttribute("detailDueDates", detailDueDates);
         request.setAttribute("documentsByItemId", documentsByItemId);
-        request.getRequestDispatcher("/WEB-INF/view/quanli/gdInPhieuMuon.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/nhanvienquanli/gdInPhieuMuon.jsp").forward(request, response);
     }
 
     private void error(HttpServletRequest request, HttpServletResponse response, int status, String message)
