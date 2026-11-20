@@ -75,7 +75,7 @@
             </span>
             <c:set var="totalCount" value="${items.size()}"/>
             <div class="availability-count">
-                <strong><c:out value="${availableCount}"/>/<c:out value="${totalCount}"/> bản sẵn có</strong>
+                <span><c:out value="${availableCount}"/>/<c:out value="${totalCount}"/> bản sẵn có</span>
             </div>
         </div>
     </div>
