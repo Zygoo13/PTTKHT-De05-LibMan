@@ -1,7 +1,21 @@
-.login-panel {
-    width: 100%;
+.site-header {
+    display: none;
+}
+
+.login-layout {
     max-width: 420px;
     margin: clamp(1rem, 8vh, 4rem) auto;
+}
+
+.login-brand {
+    margin: 0 0 1rem;
+    color: var(--navy);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-panel {
     padding: 1.75rem;
 }
 

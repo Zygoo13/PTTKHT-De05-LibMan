@@ -523,9 +523,9 @@ WITH demoPeriod AS (
     LEFT JOIN tblReturn r ON r.id = rd.returnId
     WHERE p.loanNumber = 'PM-B103' AND p.readerId = 1
 ), cases AS (
-    SELECT 'DEMO-01' AS scenario, COUNT(*) AS actual, 8 AS expected FROM demoPeriod
+    SELECT 'DEMO-01' AS scenario, COUNT(*) AS actual, 15 AS expected FROM demoPeriod
     UNION ALL SELECT 'DEMO-02', COUNT(DISTINCT readerId), 5 FROM demoPeriod
-    UNION ALL SELECT 'DEMO-03', COUNT(*), 4 FROM demoPeriod WHERE readerId = 1
+    UNION ALL SELECT 'DEMO-03', COUNT(*), 11 FROM demoPeriod WHERE readerId = 1
     UNION ALL SELECT 'DEMO-04', COUNT(*), 4 FROM demoSlip
     UNION ALL SELECT 'DEMO-05', COUNT(*), 4 FROM demoSlip WHERE
         (itemCode = 'IT-023' AND returnedOn = '2026-11-16' AND returnedOn < dueDate)

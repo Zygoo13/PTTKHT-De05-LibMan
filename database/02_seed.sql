@@ -1150,7 +1150,14 @@ INSERT INTO seedLoan (`id`, `loanNumber`, `checkoutDateTime`, `readerId`, `proce
     (272, 'PM-B004', '2026-11-12 16:59:59', 3, 102),
     (273, 'PM-B005', '2026-11-12 17:00:00', 4, 102),
     (274, 'PM-B103', '2026-11-10 02:15:00', 1, 102),
-    (275, 'PM-B104', '2026-11-14 09:40:00', 1, 102);
+    (275, 'PM-B104', '2026-11-14 09:40:00', 1, 102),
+    (276, 'PM-B105', '2026-11-13 01:15:00', 1, 102),
+    (277, 'PM-B106', '2026-11-13 04:10:00', 1, 103),
+    (278, 'PM-B107', '2026-11-13 07:30:00', 1, 104),
+    (279, 'PM-B108', '2026-11-14 02:20:00', 1, 102),
+    (280, 'PM-B109', '2026-11-14 07:05:00', 1, 103),
+    (281, 'PM-B110', '2026-11-15 02:40:00', 1, 104),
+    (282, 'PM-B111', '2026-11-15 08:10:00', 1, 102);
 
 CREATE TEMPORARY TABLE seedLoanDetail LIKE tblLoanDetail;
 INSERT INTO seedLoanDetail (`id`, `dueDate`, `loanId`, `itemId`) VALUES
@@ -1655,7 +1662,14 @@ INSERT INTO seedLoanDetail (`id`, `dueDate`, `loanId`, `itemId`) VALUES
     (499, '2026-11-14', 274, 25),
     (500, '2026-11-24', 274, 178),
     (501, '2026-11-21', 275, 3),
-    (502, '2026-11-21', 275, 4);
+    (502, '2026-11-21', 275, 4),
+    (503, '2026-11-20', 276, 5),
+    (504, '2026-11-20', 277, 63),
+    (505, '2026-11-20', 278, 284),
+    (506, '2026-11-21', 279, 201),
+    (507, '2026-11-21', 280, 184),
+    (508, '2026-11-22', 281, 84),
+    (509, '2026-11-22', 282, 87);
 
 CREATE TEMPORARY TABLE seedReturn LIKE tblReturn;
 INSERT INTO seedReturn (`id`, `returnNumber`, `returnDateTime`, `processedById`) VALUES
@@ -1964,7 +1978,14 @@ INSERT INTO seedReturn (`id`, `returnNumber`, `returnDateTime`, `processedById`)
     (303, 'PT-002', '2026-11-14 03:00:00', 102),
     (304, 'PT-B103-01', '2026-11-16 03:20:00', 102),
     (305, 'PT-B103-02', '2026-11-19 02:30:00', 102),
-    (306, 'PT-B104-01', '2026-11-15 02:00:00', 102);
+    (306, 'PT-B104-01', '2026-11-15 02:00:00', 102),
+    (307, 'PT-B105-01', '2026-11-13 03:40:00', 103),
+    (308, 'PT-B106-01', '2026-11-13 06:50:00', 104),
+    (309, 'PT-B107-01', '2026-11-14 01:10:00', 102),
+    (310, 'PT-B108-01', '2026-11-14 04:15:00', 103),
+    (311, 'PT-B109-01', '2026-11-15 02:05:00', 104),
+    (312, 'PT-B110-01', '2026-11-15 07:40:00', 102),
+    (313, 'PT-B111-01', '2026-11-18 03:30:00', 103);
 
 CREATE TEMPORARY TABLE seedReturnDetail LIKE tblReturnDetail;
 INSERT INTO seedReturnDetail (`id`, `condition`, `returnId`, `loanDetailId`) VALUES
@@ -2455,7 +2476,14 @@ INSERT INTO seedReturnDetail (`id`, `condition`, `returnId`, `loanDetailId`) VAL
     (485, 'NORMAL', 304, 497),
     (486, 'NORMAL', 305, 499),
     (487, 'DAMAGED', 306, 501),
-    (488, 'LOST', 306, 502);
+    (488, 'LOST', 306, 502),
+    (489, 'NORMAL', 307, 503),
+    (490, 'NORMAL', 308, 504),
+    (491, 'NORMAL', 309, 505),
+    (492, 'NORMAL', 310, 506),
+    (493, 'NORMAL', 311, 507),
+    (494, 'NORMAL', 312, 508),
+    (495, 'NORMAL', 313, 509);
 
 CREATE TEMPORARY TABLE seedFine LIKE tblFine;
 INSERT INTO seedFine (`id`, `reason`, `amount`, `loanDetailId`, `assessedById`) VALUES
