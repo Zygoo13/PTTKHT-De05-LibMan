@@ -73,7 +73,11 @@
                     <c:otherwise>Chỉ đọc tại thư viện</c:otherwise>
                 </c:choose>
             </span>
-            <small><c:out value="${availableCount}"/> trong <c:out value="${items.size()}"/> bản sẵn có</small>
+            <c:set var="totalCount" value="${items.size()}"/>
+            <div class="availability-count">
+                <strong><c:out value="${availableCount}"/>/<c:out value="${totalCount}"/> bản sẵn có</strong>
+                <small><c:out value="${availableCount}"/> bản sẵn có trên tổng số <c:out value="${totalCount}"/> bản tài liệu</small>
+            </div>
         </div>
     </div>
     <c:choose>

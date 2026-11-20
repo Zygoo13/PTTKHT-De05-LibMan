@@ -14,3 +14,11 @@
 .section-heading h2 {
     margin-top: 0;
 }
+
+.availability-count {
+    text-align: right;
+}
+
+.availability-count small {
+    display: block;
+}
